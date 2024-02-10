@@ -62,7 +62,7 @@ const UploadProject = () => {
   };
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
-      <h2 className="text-2xl font-semibold mb-4">Upload Book</h2>
+      <h2 className="text-2xl font-semibold mb-4">Upload</h2>
 
       <div className="mb-4">
         <label className="block text-sm font-medium text-gray-600">name:</label>

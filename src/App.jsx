@@ -6,6 +6,8 @@ import UploadProject from './components/UploadProject';
 import Blogs from './pages/Blogs';
 import BlogDetail from './pages/BlogDetail'; // Import BlogDetail component
 import Project from './pages/Project';
+import Sitemap from './pages/Sitemap';
+import AdsTxt from './pages/AdsTxt';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -58,6 +60,24 @@ const App = () => {
         <div>
           <Header />
           <BlogDetail />
+        </div>
+      ),
+    },
+    {
+      path: '/sitemap.xml',
+      element: (
+        <div>
+          
+          <Sitemap />
+        </div>
+      ),
+    },
+    {
+      path: '/ads.txt',
+      element: (
+        <div>
+          
+          <AdsTxt />
         </div>
       ),
     },
