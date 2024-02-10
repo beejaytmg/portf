@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const Project = () => {
   const [projectsData, setprojectsData] = useState([]);
   const [loading, setLoading] = useState(true);
+   // State to track user's login status
 
   useEffect(() => {
     const fetchprojects = async () => {
@@ -19,6 +20,9 @@ const Project = () => {
     };
 
     fetchprojects();
+
+    // Check if the user is logged in upon component mount
+   
   }, []);
 
   return (
@@ -27,21 +31,22 @@ const Project = () => {
         <div className="text-center">Loading projects...</div>
       ) : (
         projectsData.map((project) => (
-          <div key={project.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+          <div key={project.id} className="bg-white rounded-lg shadow-md overflow-hidden p-1">
             <div className="bg-purple-600 py-1 px-2">
               <h3 className="text-sm font-semibold text-white">{project.name}</h3>
             </div>
-            <div className="p-2">
+            <div>
               <p className="text-xs text-gray-600">Type: {project.type}</p>
               <p className="text-xs text-gray-600">Detail: {project.detail}</p>
               <img
                 src={project.image}
                 alt={`project cover for ${project.name}`}
-                className="mt-2 rounded-lg w-full h-auto"
+                className="mt-2 rounded-lg w-full h-32"
               />
               <Link to={project.link} className="mt-1 block text-purple-600 hover:underline text-xs">
                 Project Link
               </Link>
+              
             </div>
           </div>
         ))

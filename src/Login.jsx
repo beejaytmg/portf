@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-const Login = ({onLogin}) => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -13,6 +13,7 @@ const Login = ({onLogin}) => {
         username,
         password,
       });
+      console.log(response.data);
       const access = response.data.access;
       const refresh = response.data.refresh;
       localStorage.setItem('access', access);
@@ -26,11 +27,22 @@ const Login = ({onLogin}) => {
         }
       );
       const user = userResponse.data;
+      console.log(userResponse.data);
       localStorage.setItem('user', JSON.stringify(user));
-      onLogin(user)
+      
       navigate("/");
     } catch (error) {
-      console.error("Failed");
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.error("Login failed with status code:", error.response.status);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("No response received:", error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error("Error occurred:", error.message);
+      }
     }
   };
   return (
