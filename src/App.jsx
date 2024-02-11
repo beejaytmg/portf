@@ -8,6 +8,8 @@ import BlogDetail from './pages/BlogDetail'; // Import BlogDetail component
 import Project from './pages/Project';
 import Sitemap from './pages/Sitemap';
 import AdsTxt from './pages/AdsTxt';
+import Home from './pages/Home';
+import AdminHeader from './components/AdminHeader';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -21,64 +23,73 @@ const App = () => {
     {
       path: '/',
       element: (
-        <div>
-          <Header />
-        </div>
+        <>
+          {isLoggedIn ? <AdminHeader /> : <Header/>}
+          <Home />
+        </>
       ),
     },
     {
       path: '/projects',
       element: (
-        <div>
-          <Header />
-          {isLoggedIn && <UploadProject />}
+        <>
+          {isLoggedIn ? <AdminHeader /> : <Header/>}
           <Project />
-        </div>
+        </>
       ),
     },
     {
       path: '/blogs',
       element: (
-        <div>
-          <Header />
+        <>
+          {isLoggedIn ? <AdminHeader /> : <Header/>}
           <Blogs />
-        </div>
+        </>
       ),
     },
     {
       path: '/login',
       element: (
-        <div>
-          <Header />
+        <>
+          {isLoggedIn ? <AdminHeader /> : <Header/>}
           <Login />
-        </div>
+        </>
       ),
     },
     {
-      path: '/blog/:title/:id', // Route for individual blog post
+      path: '/blog/:title/:id', // Route for inidual blog post
       element: (
-        <div>
-          <Header />
+        <>
+          {isLoggedIn ? <AdminHeader /> : <Header/>}
           <BlogDetail />
-        </div>
+        </>
       ),
     },
     {
       path: '/sitemap.xml',
       element: (
-        <div>
+        <>
           
           <Sitemap />
-        </div>
+        </>
       ),
     },
     {
       path: '/ads.txt',
       element: (
-        <div>
+        <>
           
           <AdsTxt />
-        </div>
+        </>
+      ),
+    },
+    {
+      path: '/upload',
+      element: (
+        <>
+          {isLoggedIn ? <AdminHeader /> : <Header/>}
+          <UploadProject />
+        </>
       ),
     },
   ]);

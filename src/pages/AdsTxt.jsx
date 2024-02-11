@@ -6,9 +6,7 @@ const AdsTxt = () => {
   `;
 
   return (
-    <pre>
-      <code>{adsTxtContent}</code>
-    </pre>
+    <pre>{adsTxtContent}</pre>
   );
 };
 

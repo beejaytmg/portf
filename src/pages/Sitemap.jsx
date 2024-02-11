@@ -27,7 +27,7 @@ const Sitemap = () => {
 
   return (
     <pre>
-      <code>{xmlString}</code>
+      {xmlString}
     </pre>
   );
 };
