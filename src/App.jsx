@@ -7,7 +7,7 @@ import Blogs from './pages/Blogs';
 import BlogDetail from './pages/BlogDetail'; // Import BlogDetail component
 import Project from './pages/Project';
 import Sitemap from './pages/Sitemap';
-import AdsTxt from './pages/AdsTxt';
+
 import Home from './pages/Home';
 import AdminHeader from './components/AdminHeader';
 
@@ -71,15 +71,6 @@ const App = () => {
         <>
           
           <Sitemap />
-        </>
-      ),
-    },
-    {
-      path: '/ads.txt',
-      element: (
-        <>
-          
-          <AdsTxt />
         </>
       ),
     },
