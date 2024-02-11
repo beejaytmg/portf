@@ -17,7 +17,7 @@ const Sitemap = () => {
     const root = create({ version: '1.0' }).ele('urlset', { xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' });
 
     blogs.forEach(blog => {
-      root.ele('url').ele('loc').txt(`https://www.bijayakumartamang.com.np/${blog.title.replace(/\s+/g, '-').toLowerCase()}/${blog.id}`);
+      root.ele('url').ele('loc').txt(`https://bijayakumartamang.com.np/${blog.title.replace(/\s+/g, '-').toLowerCase()}/${blog.id}`);
     });
 
     return root.end({ prettyPrint: true });
