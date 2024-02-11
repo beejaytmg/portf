@@ -3,26 +3,22 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const Project = () => {
-  const [projectsData, setprojectsData] = useState([]);
+  const [projectsData, setProjectsData] = useState([]);
   const [loading, setLoading] = useState(true);
-   // State to track user's login status
 
   useEffect(() => {
-    const fetchprojects = async () => {
+    const fetchProjects = async () => {
       try {
         const projectsResponse = await axios.get('https://authapiko.pythonanywhere.com/projects/');
-        const fetchedprojectsData = projectsResponse.data;
-        setprojectsData(fetchedprojectsData);
-        setLoading(false); // Set loading to false once data is fetched
+        const fetchedProjectsData = projectsResponse.data;
+        setProjectsData(fetchedProjectsData);
+        setLoading(false);
       } catch (error) {
         console.error("Couldn't fetch projects");
       }
     };
 
-    fetchprojects();
-
-    // Check if the user is logged in upon component mount
-   
+    fetchProjects();
   }, []);
 
   return (
@@ -31,22 +27,21 @@ const Project = () => {
         <div className="text-center">Loading projects...</div>
       ) : (
         projectsData.map((project) => (
-          <div key={project.id} className="bg-white rounded-lg shadow-md overflow-hidden p-1">
-            <div className="bg-purple-600 py-1 px-2">
+          <div key={project.id} className="bg-white rounded-lg shadow-md overflow-hidden p-4">
+            <div className="bg-purple-600 py-2 px-4 rounded-t-lg">
               <h3 className="text-sm font-semibold text-white">{project.name}</h3>
             </div>
-            <div>
-              <p className="text-xs text-gray-600">Type: {project.type}</p>
-              <p className="text-xs text-gray-600">Detail: {project.detail}</p>
+            <div className="p-4">
+              <p className="text-xs text-gray-600 mb-2">Type: {project.type}</p>
+              <p className="text-xs text-gray-600 mb-4">Detail: {project.detail}</p>
               <img
                 src={project.image}
                 alt={`project cover for ${project.name}`}
-                className="mt-2 rounded-lg w-full h-32"
+                className="rounded-lg w-full h-32 object-cover"
               />
-              <Link to={project.link} className="mt-1 block text-purple-600 hover:underline text-xs">
-                Project Link
+              <Link to={project.link} className="block text-purple-600 mt-2 hover:underline text-sm">
+                View Project
               </Link>
-              
             </div>
           </div>
         ))
