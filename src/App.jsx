@@ -66,15 +66,6 @@ const App = () => {
       ),
     },
     {
-      path: '/sitemap.xml',
-      element: (
-        <>
-          
-          <Sitemap />
-        </>
-      ),
-    },
-    {
       path: '/upload',
       element: (
         <>
