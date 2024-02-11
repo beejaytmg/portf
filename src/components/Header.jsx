@@ -1,25 +1,29 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faBlog, faBriefcase, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faBlog, faBriefcase, faUserTie, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const AdminHeader = () => {
   return (
     <header className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-4">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <h1 className="text font-bold tracking-wider">Bijaya Kumar Tamang</h1>
-        <nav className="flex gap-8">
-          <Link to={"/"}>
-            <FontAwesomeIcon icon={faUser} className="text-xl transition duration-300 ease-in-out hover:text-yellow-300" />
+        <nav className="flex gap-0">
+          <Link to={"/"} className="relative group">
+            <FontAwesomeIcon icon={faUser} className="text-xl transition duration-300 ease-in-out group-hover:text-yellow-300" />
+            <span className="text-xs py-1 px-2 rounded-full opacity-0 transition duration-300 ease-in-out pointer-events-none group-hover:opacity-100 bg-yellow-300">Profile</span>
           </Link>
-          <Link to={"/blogs"}>
-            <FontAwesomeIcon icon={faBlog} className="text-xl transition duration-300 ease-in-out hover:text-yellow-300" />
+          <Link to={"/blogs"} className="relative group">
+            <FontAwesomeIcon icon={faBlog} className="text-xl transition duration-300 ease-in-out group-hover:text-yellow-300" />
+            <span className="text-xs py-1 px-2 rounded-full opacity-0 transition duration-300 ease-in-out pointer-events-none group-hover:opacity-100 bg-yellow-300">Blogs</span>
           </Link>
-          <Link to={"/projects"}>
-            <FontAwesomeIcon icon={faBriefcase} className="text-xl transition duration-300 ease-in-out hover:text-yellow-300" />
+          <Link to={"/projects"} className="relative group">
+            <FontAwesomeIcon icon={faBriefcase} className="text-xl transition duration-300 ease-in-out group-hover:text-yellow-300" />
+            <span className="text-xs py-1 px-2 rounded-full opacity-0 transition duration-300 ease-in-out pointer-events-none group-hover:opacity-100 bg-yellow-300">Projects</span>
           </Link>
-          <Link to={"/login"}>
-            <FontAwesomeIcon icon={faUserTie} className="text-xl transition duration-300 ease-in-out hover:text-yellow-300" />
+          <Link to={"/login"} className="relative group">
+            <FontAwesomeIcon icon={faUserTie} className="text-xl transition duration-300 ease-in-out group-hover:text-yellow-300" />
+            <span className="text-xs py-1 px-2 rounded-full opacity-0 transition duration-300 ease-in-out pointer-events-none group-hover:opacity-100 bg-yellow-300">Login</span>
           </Link>
         </nav>
       </div>
@@ -27,4 +31,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default AdminHeader;

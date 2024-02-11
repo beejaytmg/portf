@@ -21,10 +21,6 @@ const AdminHeader = () => {
             <FontAwesomeIcon icon={faBriefcase} className="text-xl transition duration-300 ease-in-out group-hover:text-yellow-300" />
             <span className="text-xs py-1 px-2 rounded-full opacity-0 transition duration-300 ease-in-out pointer-events-none group-hover:opacity-100 bg-yellow-300">Projects</span>
           </Link>
-          <Link to={"/login"} className="relative group">
-            <FontAwesomeIcon icon={faUserTie} className="text-xl transition duration-300 ease-in-out group-hover:text-yellow-300" />
-            <span className="text-xs py-1 px-2 rounded-full opacity-0 transition duration-300 ease-in-out pointer-events-none group-hover:opacity-100 bg-yellow-300">Login</span>
-          </Link>
           <Link to={"/upload"} className="relative group">
             <FontAwesomeIcon icon={faPlus} className="text-xl transition duration-300 ease-in-out group-hover:text-yellow-300" />
             <span className="text-xs py-1 px-2 rounded-full opacity-0 transition duration-300 ease-in-out pointer-events-none group-hover:opacity-100 bg-yellow-300">Upload</span>
