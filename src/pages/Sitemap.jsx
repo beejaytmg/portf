@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { create } from 'xmlbuilder2';
 
@@ -26,9 +25,7 @@ const Sitemap = () => {
   const xmlString = generateXml();
 
   return (
-    <pre>
-      {xmlString}
-    </pre>
+    <textarea rows={20} cols={80} value={xmlString} readOnly />
   );
 };
 
