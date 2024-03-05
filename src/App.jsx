@@ -7,9 +7,11 @@ import Blogs from './pages/Blogs';
 import BlogDetail from './pages/BlogDetail'; // Import BlogDetail component
 import Project from './pages/Project';
 
-
+import { MovieProvider } from './MovieContext';}
 import Home from './pages/Home';
 import AdminHeader from './components/AdminHeader';
+import Movie from './Movie';
+import Watch from './Watch';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -74,11 +76,29 @@ const App = () => {
         </>
       ),
     },
+    {
+      path: '/movie/:id',
+      element: (
+        <>
+          <Movie />
+        </>
+      ),
+    },
+    {
+      path: '/watch',
+      element: (
+        <>
+          <Watch />
+        </>
+      ),
+    },
   ]);
 
   return (
     <>
+      <MovieProvider>
       <RouterProvider router={router} />
+      </MovieProvider>
     </>
   );
 };
