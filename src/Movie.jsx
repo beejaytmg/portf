@@ -1,10 +1,8 @@
 import React, { useContext, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import MovieContext from './MovieContext';
 
-const Movie = ({ match }) => {
+const Movie = ({ match, history }) => {
   const { setMovieId } = useContext(MovieContext);
-  const history = useHistory();
   const movieId = match.params.id;
 
   useEffect(() => {
