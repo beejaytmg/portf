@@ -10,8 +10,6 @@ import Project from './pages/Project';
 import { MovieProvider } from './MovieContext';
 import Home from './pages/Home';
 import AdminHeader from './components/AdminHeader';
-import Movie from './Movie';
-import Watch from './Watch';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -75,23 +73,7 @@ const App = () => {
           <UploadProject />
         </>
       ),
-    },
-    {
-      path: '/movie/:id',
-      element: (
-        <>
-          <Movie />
-        </>
-      ),
-    },
-    {
-      path: '/watch',
-      element: (
-        <>
-          <Watch />
-        </>
-      ),
-    },
+    }
   ]);
 
   return (
