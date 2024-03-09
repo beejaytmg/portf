@@ -78,9 +78,9 @@ const App = () => {
 
   return (
     <>
-      <MovieProvider>
+      
       <RouterProvider router={router} />
-      </MovieProvider>
+      
     </>
   );
 };
