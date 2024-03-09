@@ -7,7 +7,6 @@ import Blogs from './pages/Blogs';
 import BlogDetail from './pages/BlogDetail'; // Import BlogDetail component
 import Project from './pages/Project';
 
-import { MovieProvider } from './MovieContext';
 import Home from './pages/Home';
 import AdminHeader from './components/AdminHeader';
 
