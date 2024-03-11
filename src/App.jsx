@@ -6,7 +6,8 @@ import UploadProject from './components/UploadProject';
 import Blogs from './pages/Blogs';
 import BlogDetail from './pages/BlogDetail'; // Import BlogDetail component
 import Project from './pages/Project';
-
+import SrcRedirect from './src';
+import VideoPlayer from './play';
 import Home from './pages/Home';
 import AdminHeader from './components/AdminHeader';
 
@@ -34,6 +35,24 @@ const App = () => {
         <>
           {isLoggedIn ? <AdminHeader /> : <Header/>}
           <Project />
+        </>
+      ),
+    },
+    {
+      path: '/play',
+      element: (
+        <>
+          
+          <VideoPlayer />
+        </>
+      ),
+    },
+    {
+      path: '/src',
+      element: (
+        <>
+          
+          <SrcRedirect />
         </>
       ),
     },
