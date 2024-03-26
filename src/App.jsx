@@ -10,6 +10,7 @@ import SrcRedirect from './src';
 import VideoPlayer from './play';
 import Home from './pages/Home';
 import AdminHeader from './components/AdminHeader';
+import Confession from './Confession';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -26,6 +27,15 @@ const App = () => {
         <>
           {isLoggedIn ? <AdminHeader /> : <Header/>}
           <Home />
+        </>
+      ),
+    },
+    {
+      path: '/confessions',
+      element: (
+        <>
+          
+          <Confession />
         </>
       ),
     },
