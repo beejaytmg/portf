@@ -11,6 +11,7 @@ import VideoPlayer from './play';
 import Home from './pages/Home';
 import AdminHeader from './components/AdminHeader';
 import Confession from './Confession';
+import Chat from './Chat';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -36,6 +37,15 @@ const App = () => {
         <>
           
           <Confession />
+        </>
+      ),
+    },
+    {
+      path: '/chat',
+      element: (
+        <>
+          
+          <Chat />
         </>
       ),
     },
