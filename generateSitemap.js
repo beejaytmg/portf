@@ -9,17 +9,19 @@ export async function generateSitemap() {
     const response = await fetch('https://authapiko.pythonanywhere.com/blogs');
     const blogs = await response.json();
 
-    const xml = xmlbuilder.create('urlset', { encoding: 'utf-8' })
-      .att('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
-      .ele('url')
-      .map((blog) => {
-        return blog.ele('loc', `https://bijayakumartamang.com.np/blog/${blog.title.replace(/\s+/g, '-').toLowerCase()}/${blog.id}`)
-          .up()
-          .ele('changefreq', 'weekly')
-          .up()
-          .ele('priority', '0.8');
-      })
-      .end({ pretty: true });
+    const root = xmlbuilder.create('urlset', { encoding: 'utf-8' })
+      .att('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
+
+    for (const blog of blogs) {
+      root.ele('url')
+        .ele('loc', `https://bijayakumartamang.com.np/blog/${blog.title.replace(/\s+/g, '-').toLowerCase()}/${blog.id}`)
+        .up()
+        .ele('changefreq', 'weekly')
+        .up()
+        .ele('priority', '0.8');
+    }
+
+    const xml = root.end({ pretty: true });
 
     // Ensure the 'public' directory exists
     const publicDir = path.join(path.dirname(import.meta.url), 'public');
