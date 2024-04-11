@@ -2,7 +2,7 @@ name: Update Sitemap
 
 on:
   schedule:
-    - cron: '0 17 * * *' # Run every day at 00:00 (midnight) UTC
+    - cron: '2 17 * * *' # Run every day at 00:00 (midnight) UTC
 
 jobs:
   update-sitemap:
