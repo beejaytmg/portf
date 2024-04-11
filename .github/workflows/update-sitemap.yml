@@ -2,7 +2,7 @@ name: Generate Sitemap
 
 on:
   schedule:
-    - cron: '42 17 * * *'
+    - cron: '45 17 * * *'
   push:
     branches:
       - main  # Adjust this to your main branch name
@@ -25,6 +25,6 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add sitemap.xml
+          git add public/sitemap.xml
           git commit -m "Generate sitemap"
           git push
