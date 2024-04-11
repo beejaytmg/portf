@@ -2,7 +2,7 @@ name: Generate Sitemap
 
 on:
   schedule:
-    - cron: '20 12 * * *'  # Runs every day at 6 PM Nepal Time (12:45 PM UTC)
+    - cron: '0 0 * * *'  # Runs every day at 6 PM Nepal Time (12:45 PM UTC)
 
 jobs:
   generate-sitemap:
