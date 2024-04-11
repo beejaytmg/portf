@@ -23,8 +23,12 @@ export async function generateSitemap() {
     const xml = root.end({ pretty: true });
 
     // Write the XML to sitemap.xml file
-    await fs.promises.writeFile('public/sitemap.xml', xml, 'utf8');
-    console.log('Sitemap generated successfully!');
+    try {
+        await fs.promises.writeFile('public/sitemap.xml', xml, 'utf8');
+        console.log('Sitemap generated successfully!');
+      } catch (error) {
+        console.error('Error writing sitemap.xml file:', error);
+      }
   } catch (error) {
     console.error('Error fetching blogs:', error);
   }
