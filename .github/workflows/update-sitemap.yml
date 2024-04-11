@@ -2,10 +2,7 @@ name: Generate Sitemap
 
 on:
   schedule:
-    - cron: '0 18 * * *'  # Runs every day at 6 PM (UTC)
-  push:
-    branches:
-      - main  # Adjust this to your main branch name
+    - cron: '20 12 * * *'  # Runs every day at 6 PM Nepal Time (12:45 PM UTC)
 
 jobs:
   generate-sitemap:
