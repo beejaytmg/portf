@@ -1,7 +1,7 @@
 import fs from 'fs';
 import fetch from 'node-fetch';
 import xmlbuilder from 'xmlbuilder';
-
+import path from 'path';
 export async function generateSitemap() {
   try {
     // Fetch blogs from the API
@@ -23,12 +23,9 @@ export async function generateSitemap() {
     const xml = root.end({ pretty: true });
 
     // Write the XML to sitemap.xml file
-    try {
-        await fs.promises.writeFile('public/sitemap.xml', xml, 'utf8');
-        console.log('Sitemap generated successfully!');
-      } catch (error) {
-        console.error('Error writing sitemap.xml file:', error);
-      }
+    const sitemapFilePath = path.join(__dirname, 'public', 'sitemap.xml');
+    await fs.promises.writeFile(sitemapFilePath, xml, 'utf8');
+    console.log('Sitemap generated successfully!');
   } catch (error) {
     console.error('Error fetching blogs:', error);
   }
