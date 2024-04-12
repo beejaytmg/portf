@@ -24,6 +24,23 @@ const BlogDetail = () => {
     return <div>Loading...</div>;
   }
 
+  const renderBoldText = (text, index, lastIndex) => {
+    const boldRegex = /\*\*(.*?)\*\*/g;
+    const elements = [];
+    let match;
+    while ((match = boldRegex.exec(text)) !== null) {
+      if (match.index !== 0) {
+        elements.push(<span key={index + '-' + lastIndex} className="text-gray-600">{text.substring(lastIndex, match.index)}</span>);
+      }
+      elements.push(<strong key={index + '-' + match.index} className="font-bold text-gray-800">{match[1]}</strong>);
+      lastIndex = boldRegex.lastIndex;
+    }
+    if (lastIndex < text.length) {
+      elements.push(<span key={index + '-' + lastIndex} className="text-gray-600">{text.substring(lastIndex)}</span>);
+    }
+    return elements;
+  };
+
   const renderContent = () => {
     const contentLines = blog.content.split('\n');
 
@@ -102,20 +119,36 @@ const BlogDetail = () => {
           </div>
         );
       } else {
+        const linkRegex = /\[(.*?)\]\((.*?)\)/g;
         const boldRegex = /\*\*(.*?)\*\*/g;
         let lastIndex = 0;
         const elements = [];
         let match;
-        while ((match = boldRegex.exec(line)) !== null) {
+
+        while ((match = linkRegex.exec(line)) !== null) {
           if (match.index !== 0) {
-            elements.push(<span key={index + '-' + lastIndex} className="text-gray-600">{line.substring(lastIndex, match.index)}</span>);
+            const beforeLink = line.substring(lastIndex, match.index);
+            const boldElements = renderBoldText(beforeLink, index, lastIndex);
+            elements.push(...boldElements);
           }
-          elements.push(<strong key={index + '-' + match.index} className="font-bold text-gray-800">{match[1]}</strong>);
-          lastIndex = boldRegex.lastIndex;
+          elements.push(
+            <a
+              key={index + '-' + match.index}
+              href={match[2]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-700"
+            >
+              {match[1]}
+            </a>
+          );
+          lastIndex = linkRegex.lastIndex;
         }
-        if (lastIndex < line.length) {
-          elements.push(<span key={index + '-' + lastIndex} className="text-gray-600">{line.substring(lastIndex)}</span>);
-        }
+
+        const remainingText = line.substring(lastIndex);
+        const boldElements = renderBoldText(remainingText, index, lastIndex);
+        elements.push(...boldElements);
+
         return <p key={index} className="mb-6 text-gray-700 leading-relaxed">{elements}</p>;
       }
     });
