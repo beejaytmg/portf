@@ -36,13 +36,13 @@ const BlogDetail = () => {
         let match;
         while ((match = boldRegex.exec(headingText)) !== null) {
           if (match.index !== 0) {
-            elements.push(headingText.substring(lastIndex, match.index));
+            elements.push(<span key={index + '-' + lastIndex} className="text-gray-800">{headingText.substring(lastIndex, match.index)}</span>);
           }
           elements.push(<strong key={index + '-' + match.index} className="font-bold text-5xl text-gray-800">{match[1]}</strong>);
           lastIndex = boldRegex.lastIndex;
         }
         if (lastIndex < headingText.length) {
-          elements.push(headingText.substring(lastIndex));
+          elements.push(<span key={index + '-' + lastIndex} className="text-gray-800">{headingText.substring(lastIndex)}</span>);
         }
         return (
           <h1 key={index} className="text-5xl font-bold mb-10 text-gray-800 leading-tight">
@@ -57,13 +57,13 @@ const BlogDetail = () => {
         let match;
         while ((match = boldRegex.exec(subHeadingText)) !== null) {
           if (match.index !== 0) {
-            elements.push(subHeadingText.substring(lastIndex, match.index));
+            elements.push(<span key={index + '-' + lastIndex} className="text-gray-700">{subHeadingText.substring(lastIndex, match.index)}</span>);
           }
           elements.push(<strong key={index + '-' + match.index} className="font-bold text-3xl text-gray-700">{match[1]}</strong>);
           lastIndex = boldRegex.lastIndex;
         }
         if (lastIndex < subHeadingText.length) {
-          elements.push(subHeadingText.substring(lastIndex));
+          elements.push(<span key={index + '-' + lastIndex} className="text-gray-700">{subHeadingText.substring(lastIndex)}</span>);
         }
         return (
           <h2 key={index} className="text-3xl font-bold mb-6 text-gray-700 leading-tight">
@@ -78,18 +78,28 @@ const BlogDetail = () => {
         let match;
         while ((match = boldRegex.exec(listItemText)) !== null) {
           if (match.index !== 0) {
-            elements.push(listItemText.substring(lastIndex, match.index));
+            elements.push(<span key={index + '-' + lastIndex} className="text-gray-700">{listItemText.substring(lastIndex, match.index)}</span>);
           }
           elements.push(<strong key={index + '-' + match.index} className="font-bold text-gray-700">{match[1]}</strong>);
           lastIndex = boldRegex.lastIndex;
         }
         if (lastIndex < listItemText.length) {
-          elements.push(listItemText.substring(lastIndex));
+          elements.push(<span key={index + '-' + lastIndex} className="text-gray-700">{listItemText.substring(lastIndex)}</span>);
         }
         return (
           <li key={index} className="list-disc ml-6 text-gray-700 mb-2">
             {elements}
           </li>
+        );
+      } else if (line.includes('[ads]')) {
+        return (
+          <div key={index}>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9631856282418168" crossorigin="anonymous"></script>
+            <ins className="adsbygoogle" style={{ display: 'block', textAlign: 'center' }} data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9631856282418168" data-ad-slot="6345990221"></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
         );
       } else {
         const boldRegex = /\*\*(.*?)\*\*/g;
@@ -115,7 +125,7 @@ const BlogDetail = () => {
     <div className="max-w-3xl mx-auto px-4 py-12">
       <Helmet>
         <title>{blog.title}</title>
-        <meta name='description' content={blog.meta} />
+        <meta name="description" content={blog.meta} />
       </Helmet>
       <div className="bg-white rounded-lg shadow-xl overflow-hidden">
         <img src={blog.image} alt="Blog" className="w-full h-80 object-cover" />
