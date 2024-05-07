@@ -88,7 +88,7 @@ const BlogDetail = () => {
           </h2>
         );
       } else if (line.startsWith('###')) {
-        const subHeadingText = line.substring(3);
+        const subHeadingText = line.substring(4);
         const boldRegex = /\*\*(.*?)\*\*/g;
         let lastIndex = 0;
         const elements = [];
