@@ -87,6 +87,27 @@ const BlogDetail = () => {
             {elements}
           </h2>
         );
+      } else if (line.startsWith('###')) {
+        const subHeadingText = line.substring(3);
+        const boldRegex = /\*\*(.*?)\*\*/g;
+        let lastIndex = 0;
+        const elements = [];
+        let match;
+        while ((match = boldRegex.exec(subHeadingText)) !== null) {
+          if (match.index !== 0) {
+            elements.push(<span key={index + '-' + lastIndex} className="text-gray-700">{subHeadingText.substring(lastIndex, match.index)}</span>);
+          }
+          elements.push(<strong key={index + '-' + match.index} className="font-bold text-3xl text-gray-700">{match[1]}</strong>);
+          lastIndex = boldRegex.lastIndex;
+        }
+        if (lastIndex < subHeadingText.length) {
+          elements.push(<span key={index + '-' + lastIndex} className="text-gray-700">{subHeadingText.substring(lastIndex)}</span>);
+        }
+        return (
+          <h3 key={index} className="text-3xl font-bold mb-6 text-gray-700 leading-tight">
+            {elements}
+          </h3>
+        );
       } else if (line.startsWith('- ')) {
         const listItemText = line.substring(2);
         const boldRegex = /\*\*(.*?)\*\*/g;
