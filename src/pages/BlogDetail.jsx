@@ -176,11 +176,12 @@ const BlogDetail = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
-      <Helmet>
+    <>
+    <Helmet>
         <title>{blog.title}</title>
         <meta name="description" content={blog.meta} />
-      </Helmet>
+    </Helmet>
+    <div className="max-w-3xl mx-auto px-4 py-12">
       <div className="bg-white rounded-lg shadow-xl overflow-hidden">
         <img src={blog.image} alt="Blog" className="w-full h-80 object-cover" />
         <div className="px-8 py-10">
@@ -188,6 +189,7 @@ const BlogDetail = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
