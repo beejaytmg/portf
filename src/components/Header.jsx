@@ -7,7 +7,7 @@ const AdminHeader = () => {
   return (
     <header className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-4">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <h1 className="text font-bold tracking-wider">Bijaya Kumar Tamang</h1>
+        <span className="text font-bold tracking-wider">Bijaya Kumar Tamang</span>
         <nav className="flex gap-0">
           <Link to={"/"} className="relative group">
             <FontAwesomeIcon icon={faUser} className="text-xl transition duration-300 ease-in-out group-hover:text-yellow-300" />
