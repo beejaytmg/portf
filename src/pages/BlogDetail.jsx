@@ -139,7 +139,15 @@ const BlogDetail = () => {
             </script>
           </div>
         );
-      } else {
+      } else if (line.startsWith('<code>') && line.endsWith('</code>')) {
+          // Render code block
+          const codeContent = line.slice(6, -7);
+          return (
+            <pre key={index} className="bg-gray-800 rounded-md p-4 overflow-auto">
+              <code className="text-gray-200">{codeContent}</code>
+            </pre>
+          );
+        } else {
         const linkRegex = /\[(.*?)\]\((.*?)\)/g;
         const boldRegex = /\*\*(.*?)\*\*/g;
         let lastIndex = 0;
