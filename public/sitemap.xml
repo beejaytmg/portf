@@ -12,4 +12,28 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://bijayakumartamang.com.np/blog/course-outline:-data-preprocessing-for-data-science/20</loc>
+    <lastmod>2024-05-21T00:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bijayakumartamang.com.np/blog/roadmap-to-becoming-a-proficient-ai-engineer/21</loc>
+    <lastmod>2024-05-21T00:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bijayakumartamang.com.np/blog/imputation-explained-with-examples/22</loc>
+    <lastmod>2024-05-21T00:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bijayakumartamang.com.np/blog/one-hot-encoding-explanation-python/23</loc>
+    <lastmod>2024-05-21T00:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
