@@ -15,8 +15,10 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.6.7",
+    "dompurify": "^3.1.4",
     "express": "^4.18.2",
     "framer-motion": "^11.0.21",
+    "html-react-parser": "^5.1.10",
     "js-cookie": "^3.0.5",
     "matlabcentral": "^1.0.7",
     "node-fetch": "^3.3.2",
@@ -29,6 +31,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.22.0",
+    "sanitize-html": "^2.13.0",
     "sitemap": "^7.1.1",
     "xmlbuilder": "^15.1.1",
     "xmlbuilder2": "^3.1.1"

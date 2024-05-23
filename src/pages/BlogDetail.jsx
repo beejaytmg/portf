@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet';
+import DOMPurify from 'dompurify';
+import parse from 'html-react-parser';
 
 const BlogDetail = () => {
   const [blog, setBlog] = useState(null);
@@ -25,9 +27,8 @@ const BlogDetail = () => {
   }
 
   const renderContent = () => {
-    return (
-      <div dangerouslySetInnerHTML={{ __html: blog.content }} />
-    );
+    const cleanHtml = DOMPurify.sanitize(blog.content);
+    return parse(cleanHtml);
   };
 
   return (
